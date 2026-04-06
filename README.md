@@ -12,11 +12,23 @@ This project analyzes and predicts flight prices based on various features such 
 * Identify key features that influence flight pricing
 * Compare multiple machine learning algorithms to find the best performer
 * Engineer meaningful features from raw data to improve model performance
+  
+### Prerequisites
+
+python
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+xgboost
+lightgbm
+catboost
 
 ## 📁 Dataset
 
-**Source**: `/Volumes/workspace/default/mldatabases/Clean_Dataset.csv`
-
+**Source**: `/Volumes/workspace/default/mldatabases/Clean_Dataset.csv`,
+**shape**:(300153, 12)
 **Features**:
 * `airline`: Airline name (6 unique airlines)
 * `flight`: Flight identifier
@@ -30,18 +42,11 @@ This project analyzes and predicts flight prices based on various features such 
 * `days_left`: Days until departure
 * `price`: Target variable (flight price in ₹)
 
-**Data Quality**:
-* ✓ No missing values
-* ✓ No duplicate rows
-* Clean dataset ready for analysis
-
-## 🔍 Exploratory Data Analysis
-
 ### Key Insights:
 
 1. **Price Distribution**:
    * Significant price variation across different routes and airlines
-   * Outliers present but represent legitimate high-value tickets
+   * Outliers present but represent high-value tickets
 
 2. **Categorical Features**:
    * 6 airlines with varying price ranges
@@ -55,7 +60,7 @@ This project analyzes and predicts flight prices based on various features such 
 
 ## 🛠️ Feature Engineering
 
-Extensive feature engineering was performed to extract maximum predictive power:
+Feature engineering was performed to extract maximum predictive power.
 
 ### 1. **Route Features**
 * `route`: Concatenation of source and destination cities
@@ -115,7 +120,7 @@ After engineering, non-numeric categorical columns were dropped, retaining 20 nu
 | Linear Regression | 0.9092 | 46,807,293 | 4,470.57 |
 | Baseline (Mean) | -0.0000 | 515,482,303 | 19,768.69 |
 
-### 🏆 Best Model: Random Forest
+### Best Model: Random Forest
 
 * **R² Score**: 0.9852
 * **MAE**: ₹1,099.16
@@ -127,27 +132,6 @@ After engineering, non-numeric categorical columns were dropped, retaining 20 nu
 * Robust to outliers
 * Minimal overfitting with default parameters
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-```python
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-xgboost
-lightgbm
-catboost
-```
-
-### Installation
-
-```bash
-%pip install xgboost lightgbm catboost
-```
-
 ### Running the Notebook
 
 1. **Load Data**: Execute cells 1-2 to load the dataset
@@ -156,18 +140,6 @@ catboost
 4. **Preprocessing**: Run cells 25-28 for encoding and train/test split
 5. **Model Training**: Execute cells 30-36 for baseline and comprehensive model comparison
 6. **Hyperparameter Tuning** (Optional): Run cell 38 for RandomizedSearchCV on Random Forest
-
-## 📈 Project Structure
-
-```
-flight-price-prediction/
-│
-├── flight price prediction.ipynb    # Main notebook with complete workflow
-├── README.md                          # Project documentation
-│
-└── Data/
-    └── Clean_Dataset.csv              # Clean flight data (300K+ rows)
-```
 
 ## 📊 Key Workflow Steps
 
@@ -240,16 +212,6 @@ For further optimization, RandomizedSearchCV is configured for Random Forest:
 * 20 random parameter combinations
 * 3-fold cross-validation
 * Scoring: Negative MAE
-
-## 📝 Future Improvements
-
-* [ ] Collect more data for seasonal patterns
-* [ ] Add external features (fuel prices, holidays, events)
-* [ ] Implement deep learning models (Neural Networks)
-* [ ] Create a deployment-ready prediction API
-* [ ] Add feature importance visualization
-* [ ] Perform ablation study to identify critical features
-* [ ] Experiment with ensemble stacking
 
 ## 👨‍💻 Author
 
